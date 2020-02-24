@@ -30,5 +30,6 @@ hr {
 }
 
 header, main{
-  position:relative; 
+  position:relative;
+  top:120px;
 }
