@@ -13,4 +13,9 @@ nav span {
   font-family: 'Bungee', sans-serif;
   margin: auto;
   color: #FFF;
+  font-size: 200%;
+}
+
+nav p {
+  float: right;
 }
