@@ -1,5 +1,5 @@
 nav {
-  position: sticky;
+  box-sizing: border-box;
   height: 120px;
   width: 100vw;
   z-index: 1000;

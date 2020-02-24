@@ -5,14 +5,11 @@
  */
 html {
   box-sizing: border-box;
+  margin: 0;
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
-
-/*
- * Global layout stuff
- */
 
 body {
   color: #545149;
@@ -32,8 +29,6 @@ hr {
   border-bottom: 3px double #555;
 }
 
-
-
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+header, main{
+  position:relative; 
+}

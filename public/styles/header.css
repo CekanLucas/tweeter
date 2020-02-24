@@ -8,10 +8,6 @@ header div{
   margin: auto;
 }
 
-#name{
-  text-align: center;
-}
-
-#profile-img{
+#name, #profile-img{
   text-align: center;
 }
