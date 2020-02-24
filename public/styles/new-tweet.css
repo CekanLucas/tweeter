@@ -1,0 +1,19 @@
+/* --- Form Style --- */
+section.new-tweet{
+  font-weight: 700;
+}
+form textarea {
+  width: 100%;
+  border-radius: 10px;
+  padding: 5px;
+}
+form input {
+  border-radius: 10px 5px;
+  background-color: #0AF;
+  color: whitesmoke;
+}
+form span.counter {
+  color: #0AF;
+  float: right;
+
+}

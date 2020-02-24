@@ -1,0 +1,16 @@
+nav {
+  position: sticky;
+  height: 120px;
+  width: 100vw;
+  z-index: 1000;
+  background-color: #4056A1;
+  background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+  color: #FFF;
+  padding: 1.5em;
+}
+
+nav span {
+  font-family: 'Bungee', sans-serif;
+  margin: auto;
+  color: #FFF;
+}

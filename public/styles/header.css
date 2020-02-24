@@ -1,0 +1,17 @@
+header{
+  height: 400px;
+  width: 100%;
+  background-color: #a4a6a5;
+  background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+}
+header div{
+  margin: auto;
+}
+
+#name{
+  text-align: center;
+}
+
+#profile-img{
+  text-align: center;
+}

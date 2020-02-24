@@ -4,9 +4,17 @@
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
+    
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
-
+    <link rel="stylesheet" href="./styles/layout.css">
+    <link rel="stylesheet" href="./styles/nav.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/new-tweet.css">
+  
+    <!-- External Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:300,300i,400,400i&display=swap" rel="stylesheet"> 
+    
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
@@ -19,11 +27,40 @@
 
   <body>
     <!-- Top nav bar (fixed) -->
-    <nav>
-      <span>tweeter</span>
-    </nav>
+      <nav>
+        <span>tweeter</span>
+        <p><b>Write</b> a new tweet</p>
+      </nav>
+    <header>
+      <div id=profile-img>
+          <img src="/images/profile-hex.png"> 
+      </div>
+      <br>
+      <div id=name>
+          <h2>Your Name</h2>
+      </div>
+    </header>
+
 
     <!-- Page-specific (main) content here -->
-    <main class="container"></main>
+    <main class="container">
+<!--       <fieldset id=new-tweet>
+        <legend>New Tweet</legend>
+        <form action="./tweets" method="post">
+          <input type="text" name="" id="" placeholder="What are you humming about!">
+          <hr>
+          <button>Tweet</button>
+        </form>
+      </fieldset> -->
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+          <form action='/tweets' method=post>
+            <textarea name="text" placeholder="What are you humming about?"></textarea><hr>
+            <input type="submit" value="Tweet">
+            <span class="counter">140</span>
+          </form>
+      </section>
+
+    </main>
   </body>
 </html>
