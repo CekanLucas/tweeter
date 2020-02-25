@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./styles/nav.css">
     <link rel="stylesheet" href="./styles/header.css">
     <link rel="stylesheet" href="./styles/new-tweet.css">
+    <link rel="stylesheet" href="./styles/tweets.css">
   
     <!-- External Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro:300,300i,400,400i&display=swap" rel="stylesheet"> 
@@ -26,6 +27,7 @@
 
     <!-- Char Counter -->
     <script type="text/javascript" src="./scripts/composer-char-counter.js"></script>
+    <script type="text/javascript" src="./scripts/tweets.js"></script>
   </head>
 
   <body>
@@ -57,16 +59,18 @@
 
 <article id="tweets-container">
 
-<section class="tweet">
-  <img src="" alt="" class=tweetImg>
+<section class="tweet" id="tweet">
+  <img src="" alt="" class=avatar>
   <span class=tweetName></span>
   <span class=tweetUser></span>
   <p class=tweetContent></p>
   <hr>
-  <span class=tweetDat></span>
-  <a href="http://">&#10084;</a>
-  <a href="http://">&#8645;</a>
-  <a href="http://">&#127987;</a>
+  <span class=tweetDate></span>
+  <span class="tweetOptions">
+    <a href="http://">&#10084;</a>
+    <a href="http://">&#8645;</a>
+    <a href="http://">&#127987;</a>
+  </span>
 </section>
 
 </article>

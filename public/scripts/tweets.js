@@ -1,4 +1,4 @@
-[
+const tweetJSON = [
   {
     "user": {
       "name": "Newton",
@@ -22,3 +22,22 @@
     "created_at": 1461113959088
   }
 ]
+const tweetsDB = tweetJSON.map(el => {
+  return (el);
+})
+
+$(document).ready( () => {
+  tweetsDB.forEach(tweet => {
+    // clone template tweet to create new tweet
+    const newTweet = $('.tweet').clone();
+    // avatar
+    newTweet.children().first().attr('src',tweet.user.avatars);
+ 
+    newTweet.appendTo('#tweets-container');
+    console.log($('#tweets-container').first())
+  });
+// .first() first child 
+// .next() next sibling
+}
+
+)

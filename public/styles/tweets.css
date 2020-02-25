@@ -1,0 +1,31 @@
+.tweet{
+
+}
+
+.tweet img{
+
+}
+
+.tweet span.tweetName{
+
+}
+
+.tweet p.tweetContent{
+
+}
+
+.tweet span.tweetDate{
+
+}
+
+.tweetOptions{
+  float: right;
+  border-radius: 10px 5px;
+  background-color: #0AF;
+  color: whitesmoke;
+}
+section.tweet a{
+  margin:0 3px;
+  padding:5px;
+  color:white;
+}
