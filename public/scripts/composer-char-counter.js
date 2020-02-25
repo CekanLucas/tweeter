@@ -1,8 +1,8 @@
 
 $(document).ready(function() {
   $(tweetArea).on('keydown', e => {
-    let value = $(tweetArea).val().length
-    $(charCounter).text(`${value}`);
-    console.log(value);
+    // note this is not working for my live preview extention fix when ready
+    let counter = $(tweetArea).val().length
+    $(charCounter).text(`${counter}`);
   })
 });
