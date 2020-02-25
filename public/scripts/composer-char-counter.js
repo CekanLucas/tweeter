@@ -1,5 +1,8 @@
 
 $(document).ready(function() {
-  console.log('character script counter working');
-  // --- our code goes here ---
+  let cc = 0; // character counter
+  $(tweetArea).on('keydown', e => {
+    let value = $(tweetArea).val().length
+    console.log(value);
+  })
 });
