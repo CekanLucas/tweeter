@@ -16,3 +16,6 @@ form span.counter {
   color: #0AF;
   float: right;
 }
+form span.counter.warning {
+  color:red;
+}
