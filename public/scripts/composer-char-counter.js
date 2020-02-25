@@ -1,8 +1,8 @@
 
 $(document).ready(function() {
-  let cc = 0; // character counter
   $(tweetArea).on('keydown', e => {
     let value = $(tweetArea).val().length
+    $(charCounter).text(`${value}`);
     console.log(value);
   })
 });
