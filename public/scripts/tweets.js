@@ -30,14 +30,19 @@ $(document).ready( () => {
   tweetsDB.forEach(tweet => {
     // clone template tweet to create new tweet
     const newTweet = $('.tweet').clone();
-    // avatar
-    newTweet.children().first().attr('src',tweet.user.avatars);
+
+    // update tweets from database
+    newTweet.children().eq(0).attr('src',tweet.user.avatars);
+    newTweet.children().eq(1).text(tweet.user.name);
+    newTweet.children().eq(2).text(tweet.user.handle);
+    newTweet.children().eq(3).text(tweet.content.text);
+    newTweet.children().eq(5).text(tweet.created_at);
  
     newTweet.appendTo('#tweets-container');
-    console.log($('#tweets-container').first())
   });
-// .first() first child 
-// .next() next sibling
+  // make cloned tweet template gone
+  $('#tweets-container').children().eq(0).css('display','none');
+  $('#tweets-container').children().eq(1).css('display','none');
 }
 
 )

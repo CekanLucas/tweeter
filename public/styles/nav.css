@@ -8,6 +8,7 @@ nav {
   background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
   color: #FFF;
   padding: 1.5em;
+  border-bottom: 3px double white;
 }
 
 nav span {

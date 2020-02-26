@@ -1,21 +1,40 @@
 .tweet{
-
+  background-color: #0AF;
+  background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+  color:whitesmoke;
+  padding: 5px;
+  border: 3px solid black;
+  border-radius: 15px;
+  margin: 1.5em 0;
 }
 
 .tweet img{
-
+  box-sizing: border;
+  height: 3em;
+  border:3px solid #555;
+  border-radius: 50%;
 }
 
 .tweet span.tweetName{
-
+  font-weight: 700;
+  font-size:2.5em;
+  position: relative;
+  bottom: 0.25em;
+}
+.tweet span.tweetUser{
+  float:right;
+  font-weight: 700;
 }
 
 .tweet p.tweetContent{
+  font-weight: 700;
+  text-justify: auto;
+  padding: 1em;
 
 }
 
 .tweet span.tweetDate{
-
+  color:grey;
 }
 
 .tweetOptions{
