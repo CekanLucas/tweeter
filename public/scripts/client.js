@@ -15,13 +15,15 @@ $(document).ready( () => {
         alert('Over Character Limit');
         return;
       }
+      
       const data = $('#newTweetForm').serialize(); // serialize data
       $.ajax({
         method: "POST",
         url: '/',
         data: data //send data to server
       })
-      .then(function (request, response) {
+      .then(function (newTweet) {
+        console.log(newTweet)
       });
     }
   });
