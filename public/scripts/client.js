@@ -16,12 +16,16 @@ $(document).ready( () => {
         return;
       }
       const data = $('#newTweetForm').serialize();
-      $.ajax({
+      return $.ajax({
         method: "POST",
-        url: 'http://localhost:8080',
+        url: 'http://localhost:8080/tweets',
         data: data //send data to server
+      }).then( res => {
+        $('#tweets-container').children().remove();
+        loadTweets();
       })
     }
+   
   });
 
   const loadTweets = () => {
