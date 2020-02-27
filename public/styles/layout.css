@@ -26,7 +26,7 @@
   nav{ background-color : #F0F}
 }
 @media screen and (min-width : 1024px) and (max-width : 1200px) {
-  nav, .tweet, .tweet span { background-color : #FF0}
+  nav, .tweet, .tweet span { background-color : rgb(136, 17, 120)}
   header {
     position: static;
     width: 30vw;

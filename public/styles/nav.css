@@ -20,4 +20,12 @@ nav span {
 
 nav p {
   float: right;
+  position: relative;
+  top: -1.5em;
+  text-align: center;
+}
+
+.write {
+  color: white;
+  font-size: 3em;
 }

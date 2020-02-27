@@ -1,6 +1,7 @@
 /* --- Form Style --- */
 section.new-tweet{
   font-weight: 700;
+  margin-top: 1.5em;
 }
 form textarea {
   width: 100%;
