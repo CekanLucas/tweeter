@@ -7,9 +7,12 @@ $(document).ready( () => {
   // new tweet form handling
   $('#newTweetForm').submit( function (e) { 
     e.preventDefault(); //prevent default behaviour of submit
-    if($('#newTweetForm').val() === ''){
-      alert('Please No empty Tweets')
+    if($('#tweetArea').val().length === 0){
+      alert('Please No empty Tweets');
     } else{
+      if(Number($('#charCounter').text()) < 0){
+        alert('Over Character Limit');
+      }
       const data = $('#newTweetForm').serialize(); // serialize data
       $.ajax({
         method: "POST",
