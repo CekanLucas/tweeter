@@ -5,7 +5,7 @@
  */
 
 // Fake data taken from initial-tweets.json
-const data = [
+/* const data = [
   {
     "user": {
       "name": "Newton",
@@ -28,9 +28,33 @@ const data = [
     },
     "created_at": 1461113959088
   }
-]
+] */
+
+
 
 $(document).ready( () => {
+
+  $('#newTweetForm').submit( function (e) { // add submit handler to form 
+    e.preventDefault(); //prevent default behaviour of submit
+    const data = $('#newTweetForm').serialize(); // serialize data
+    $.ajax({
+      method: "POST",
+      url: '/',
+      data: data //send data to server
+    })
+    .then(function (request, response) {
+    });
+  });
+
+  const loadTweets = () => {
+    $.ajax('http://localhost:8080/tweets ',{
+      method:'GET'
+    })
+    .then( (tweets) => {
+      renderTweets(tweets)
+    })
+  }
+  
   const calculateTime = t => {
     let ms = Date.now() - t;
     let ndate = new Date(ms);
@@ -52,7 +76,7 @@ $(document).ready( () => {
     })
     return ANS === 'Posted just now' ? ANS : `Posted ${ANS.value} ${ANS.for} ago`;
   }
-
+  
   const renderTweets = function(tweets) {
     // loops through tweets
     // calls createTweetElement for each tweet
@@ -65,13 +89,7 @@ $(document).ready( () => {
   
   const createTweetElement = function(tweet) {
     let $tweet = $('<article>').addClass('tweet');
-    // update tweets from database
-    // newTweet.children().eq(0).attr('src',tweet.user.avatars);
-    // newTweet.children().eq(1).text(tweet.user.name);
-    // newTweet.children().eq(2).text(tweet.user.handle);
-    // newTweet.children().eq(3).text(tweet.content.text);
-    // newTweet.children().eq(5).text(calculateTime(tweet.created_at));
-
+    
     $('<img>').attr('src',tweet.user.avatars).attr('alt',`${tweet.user.nam}`). addClass('avatar').appendTo($tweet);
     $('<span>').addClass('tweetUserName').text(`${tweet.user.name}`).appendTo($tweet)
     $('<span>').addClass('tweetHandle').text(tweet.user.handle).appendTo($tweet);
@@ -82,12 +100,9 @@ $(document).ready( () => {
     <a href="http://">&#10084;</a>
     <a href="http://">&#8645;</a>
     <a href="http://">⚐</a>
-  </span>`).addClass('tweetOptions').appendTo($tweet);
-
+    </span>`).addClass('tweetOptions').appendTo($tweet);
+    
     return $tweet;
   }
-
-renderTweets(data);
-
-}
-)
+  loadTweets();
+})
