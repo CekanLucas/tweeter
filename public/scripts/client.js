@@ -3,47 +3,22 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-
-// Fake data taken from initial-tweets.json
-/* const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-] */
-
-
-
 $(document).ready( () => {
-
-  $('#newTweetForm').submit( function (e) { // add submit handler to form 
+  // new tweet form handling
+  $('#newTweetForm').submit( function (e) { 
     e.preventDefault(); //prevent default behaviour of submit
-    const data = $('#newTweetForm').serialize(); // serialize data
-    $.ajax({
-      method: "POST",
-      url: '/',
-      data: data //send data to server
-    })
-    .then(function (request, response) {
-    });
+    if($('#newTweetForm').val() === ''){
+      alert('Please No empty Tweets')
+    } else{
+      const data = $('#newTweetForm').serialize(); // serialize data
+      $.ajax({
+        method: "POST",
+        url: '/',
+        data: data //send data to server
+      })
+      .then(function (request, response) {
+      });
+    }
   });
 
   const loadTweets = () => {
@@ -51,7 +26,7 @@ $(document).ready( () => {
       method:'GET'
     })
     .then( (tweets) => {
-      renderTweets(tweets)
+      renderTweets(tweets) // working
     })
   }
   
