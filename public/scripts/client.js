@@ -9,9 +9,11 @@ $(document).ready( () => {
     e.preventDefault(); //prevent default behaviour of submit
     if($('#tweetArea').val().length === 0){
       alert('Please No empty Tweets');
+      return;
     } else{
       if(Number($('#charCounter').text()) < 0){
         alert('Over Character Limit');
+        return;
       }
       const data = $('#newTweetForm').serialize(); // serialize data
       $.ajax({
