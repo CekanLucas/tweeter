@@ -3,16 +3,16 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-$(document).ready( () => {
+$(document).ready(() => {
   // new tweet form handling
-  $('#newTweetForm').submit( function (e) { 
+  $('#newTweetForm').submit(function(e) {
     e.preventDefault(); //prevent default behaviour of submit
-    if(($('#tweetArea').val()).trim().length === 0){
+    if (($('#tweetArea').val()).trim().length === 0) {
       $('#errLong').slideUp(500);
       $('#errNone').slideDown(1000);
       return;
-    } else{
-      if(Number($('#charCounter').text()) < 0){
+    } else {
+      if (Number($('#charCounter').text()) < 0) {
         $('#errNone').slideUp(500);
         $('#errLong').slideDown(1000);
         return;
@@ -22,61 +22,64 @@ $(document).ready( () => {
         method: "POST",
         url: 'http://localhost:8080/tweets',
         data: data //send data to server
-      }).then( res => {
+      }).then(res => {
         $('#errLong').slideUp(500);
         $('#errNone').slideUp(500);
         $('#tweets-container').children().remove();
         loadTweets();
-      })
+      });
     }
-   
   });
 
-  $('.write').click( function(e) {
-    if($('.new-tweet').attr('class') === 'new-tweet hide'){
+  // click hand in nav show/hide form
+  $('.write').click(function(e) {
+    if ($('.new-tweet').attr('class') === 'new-tweet hide') {
       $('.new-tweet').show(1000);
       $('.new-tweet').removeClass('hide');
       $('.new-tweet').addClass('show');
       $('#tweetArea').focus();
-    }
-    
-    else{
+    } else {
       $('.new-tweet').hide(1000);
       $('.new-tweet').removeClass('show');
       $('.new-tweet').addClass('hide');
     }
-  })
+  });
 
-  const loadTweets = () => {
+  const loadTweets = () => { // load tweets on page load
     $.ajax('http://localhost:8080/tweets ',{
       method:'GET'
     })
-    .then( (tweets) => {
-      renderTweets(tweets) // working
-    })
-  }
+      .then((tweets) => {
+        renderTweets(tweets);
+      });
+  };
   
+  // calculate time when tweet happened
   const calculateTime = t => {
     let ms = Date.now() - t;
     let ndate = new Date(ms);
     let sdate = ndate.toString();
     let arrdate = sdate.split(/[\s:]/g);
     
-    arrdate2 = [
+    arrdate2 = [ // get data from Date object and string splitting
       {value : Number(arrdate[3]) - 1970 ,for:'year(s)'},
       {value : ndate.getMonth()          ,for:'month(s)'},
       {value : Number(arrdate[2])        ,for:'day(s)'},
       {value : Number(arrdate[4])        ,for:'hour(s)'},
       {value : Number(arrdate[5])        ,for:'minute(s)'}
-    ]
-    
-    let ANS = 0
-    arrdate2.forEach( (el, i) => {
-      if(el.value > 1){ANS = el}
-      if(i === 4){'Posted just now'}
-    })
+    ];
+    //go through time unit and move down to shorter units
+    let ANS = 0;
+    arrdate2.forEach((el, i) => {
+      if (el.value > 1) {
+        ANS = el;
+      }
+      if (i === 4) {
+        'Posted just now';
+      }
+    });
     return ANS === 'Posted just now' ? ANS : `Posted ${ANS.value} ${ANS.for} ago`;
-  }
+  };
   
   const renderTweets = function(tweets) {
     // loops through tweets
@@ -86,13 +89,13 @@ $(document).ready( () => {
       const newTweet = createTweetElement(tweet);
       newTweet.appendTo('#tweets-container');
     });
-  }
+  };
   
   const createTweetElement = function(tweet) {
     let $tweet = $('<article>').addClass('tweet');
     
     $('<img>').attr('src',tweet.user.avatars).attr('alt',`${tweet.user.nam}`). addClass('avatar').appendTo($tweet);
-    $('<span>').addClass('tweetUserName').text(`${tweet.user.name}`).appendTo($tweet)
+    $('<span>').addClass('tweetUserName').text(`${tweet.user.name}`).appendTo($tweet);
     $('<span>').addClass('tweetHandle').text(tweet.user.handle).appendTo($tweet);
     $('<p>').addClass('tweetContent').text(tweet.content.text).appendTo($tweet);
     $('<hr>').appendTo($tweet);
@@ -104,6 +107,6 @@ $(document).ready( () => {
     </span>`).addClass('tweetOptions').appendTo($tweet);
     
     return $tweet;
-  }
-  loadTweets();
-})
+  };
+  loadTweets(); // call to load tweets after document renders
+});
