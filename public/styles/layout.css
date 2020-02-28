@@ -60,6 +60,7 @@ html {
   background-color: #a4a6a5;
   box-sizing: border-box;
   margin: 0;
+  overflow-y: hidden;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -75,9 +76,10 @@ body {
 main {
   width: 90%;
   background-color: transparent;
-  height: 100vh;
+  height: 10vh;
   margin: auto;
   background-color: #555;
+  overflow-y: scroll;
 }
 
 
