@@ -86,6 +86,16 @@ $(document).ready(() => {
     // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
+    let tweetArr = [];
+
+    for(tweet in tweets){
+      tweetArr.push(tweets[tweet])
+    }
+
+    tweetArr.sort( (a,b) => {
+      return a.created_at > b.created_at ? -1 : 1;
+    })
+    
     tweets.forEach(tweet => {
       const newTweet = createTweetElement(tweet);
       newTweet.appendTo('#tweets-container');
