@@ -3,6 +3,7 @@ header{
   width: 100%;
   background-color: #a4a6a5;
   background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+  text-shadow: -2px -2px 1px white;
 }
 header div{
   margin: 0 auto;
