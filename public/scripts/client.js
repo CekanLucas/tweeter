@@ -28,6 +28,21 @@ $(document).ready( () => {
    
   });
 
+  $('.write').click( function(e) {
+    if($('.new-tweet').attr('class') === 'new-tweet hide'){
+      $('.new-tweet').show(1000);
+      $('.new-tweet').removeClass('hide');
+      $('.new-tweet').addClass('show');
+      $('#tweetArea').focus();
+    }
+    
+    else{
+      $('.new-tweet').hide(1000);
+      $('.new-tweet').removeClass('show');
+      $('.new-tweet').addClass('hide');
+    }
+  })
+
   const loadTweets = () => {
     $.ajax('http://localhost:8080/tweets ',{
       method:'GET'

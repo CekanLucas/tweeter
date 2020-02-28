@@ -29,3 +29,6 @@ nav p {
   color: white;
   font-size: 3em;
 }
+.write:hover {
+  cursor:pointer;
+}
