@@ -3,13 +3,16 @@ header{
   width: 100%;
   background-color: #a4a6a5;
   background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
-  margin-top: 1.5em;
 }
 header div{
-  margin: auto;
+  margin: 0 auto;
+}
+
+#profile-img {
+	position: relative;
+	top: 2em;
 }
 
 #name, #profile-img{
   text-align: center;
 }
-
