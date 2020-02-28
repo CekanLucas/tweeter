@@ -7,7 +7,7 @@ $(document).ready( () => {
   // new tweet form handling
   $('#newTweetForm').submit( function (e) { 
     e.preventDefault(); //prevent default behaviour of submit
-    if($('#tweetArea').val().length === 0){
+    if(($('#tweetArea').val()).trim().length === 0){
       alert('Please No empty Tweets');
       return;
     } else{
