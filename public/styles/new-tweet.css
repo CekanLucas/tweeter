@@ -15,8 +15,14 @@ form input {
 }
 form span.counter {
   color: #0AF;
+  text-shadow: -2px -2px 1px white;
   float: right;
 }
-form span.counter.warning {
+form span.counter.warning, .warning {
   color:red;
+}
+#errNone, #errLong {
+  display:none;
+  width: 100%;
+  text-align: center;
 }

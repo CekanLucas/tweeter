@@ -8,11 +8,13 @@ $(document).ready( () => {
   $('#newTweetForm').submit( function (e) { 
     e.preventDefault(); //prevent default behaviour of submit
     if(($('#tweetArea').val()).trim().length === 0){
-      alert('Please No empty Tweets');
+      $('#errLong').slideUp(500);
+      $('#errNone').slideDown(1000);
       return;
     } else{
       if(Number($('#charCounter').text()) < 0){
-        alert('Over Character Limit');
+        $('#errNone').slideUp(500);
+        $('#errLong').slideDown(1000);
         return;
       }
       const data = $('#newTweetForm').serialize();
@@ -21,6 +23,8 @@ $(document).ready( () => {
         url: 'http://localhost:8080/tweets',
         data: data //send data to server
       }).then( res => {
+        $('#errLong').slideUp(500);
+        $('#errNone').slideUp(500);
         $('#tweets-container').children().remove();
         loadTweets();
       })

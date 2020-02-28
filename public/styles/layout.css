@@ -40,8 +40,24 @@
 	float: right;
 }
 }
+@media screen and (min-width : 1200px) {
+  header {
+    position: static;
+    width: 30vw;
+    float: left; 
+  }
+  body > main {
+	width: 65vw;
+	background-color: transparent;
+	height: 100vh;
+  margin: auto;
+  padding-right:1em;
+	float: right;
+}
+
 html {
   background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+  background-color: #a4a6a5;
   box-sizing: border-box;
   margin: 0;
 }
@@ -51,16 +67,17 @@ html {
 
 body {
   color: #545149;
-  background-color: #f4f1ec;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 24px;
   background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+  background-color: #555;
 }
 main {
   width: 90%;
   background-color: transparent;
   height: 100vh;
   margin: auto;
+  background-color: #555;
 }
 
 
@@ -73,3 +90,4 @@ header, main{
   top:120px;
 }
 
+}

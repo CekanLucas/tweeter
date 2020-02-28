@@ -49,6 +49,8 @@
   <main class="container">
     <section class="new-tweet hide">
         <form action='/' id=newTweetForm>
+          <p class=warning id=errLong>&#9888;This is a tweet not a essay: 140 chars max&#9888;</p>
+          <p class=warning id=errNone>&#9888;Well... say something!!!&#9888;</p>
           <textarea id='tweetArea' name="text" placeholder="What are you humming about?"></textarea><hr>
           <input type="submit" value="Tweet">
           <span class="counter" id='charCounter'>0</span>
