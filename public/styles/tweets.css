@@ -40,11 +40,13 @@
   font-weight: 700;
   text-justify: auto;
   padding: 1em;
-
 }
 
 .tweet span.tweetDate{
   color:grey;
+  font-weight: 700;
+  text-shadow: -1px -1px 0 white;
+
 }
 
 .tweetOptions{

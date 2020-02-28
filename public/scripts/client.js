@@ -23,9 +23,10 @@ $(document).ready(() => {
         url: 'http://localhost:8080/tweets',
         data: data //send data to server
       }).then(res => {
+        // remove any error messages
         $('#errLong').slideUp(500);
         $('#errNone').slideUp(500);
-        $('#tweets-container').children().remove();
+        $('#tweets-container').children().remove(); //reset tweets
         loadTweets();
       });
     }

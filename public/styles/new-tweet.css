@@ -13,7 +13,7 @@ form input {
   background-color: #0AF;
   color: whitesmoke;
 }
-form span.counter {
+span.counter {
   color: #0AF;
   text-shadow: -2px -2px 1px white;
   float: right;
