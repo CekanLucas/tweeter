@@ -14,7 +14,7 @@
   text-shadow:1px 0px 2px cyan, 0px 1px 2px cyan, -1px 0px 2px cyan, 0px -1px 2px cyan;
 }
 .tweetOptions a:hover{
-  text-shadow:10px 0px 10px cyan, 0px 1px 2px cyan, -1px 0px 2px cyan, 0px -1px 2px cyan;
+  text-shadow:10px 0px 10px orange, 0px 1px 2px orange, -1px 0px 2px orange, 0px -1px 2px orange;
 
 }
 
@@ -23,6 +23,7 @@
   height: 3em;
   border:3px solid #555;
   border-radius: 50%;
+  background-color: white;
 }
 
 .tweet span.tweetUserName{
