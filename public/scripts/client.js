@@ -57,29 +57,24 @@ $(document).ready(() => {
   
   // calculate time when tweet happened
   const calculateTime = t => {
-    let ms = Date.now() - t;
-    let ndate = new Date(ms);
-    let sdate = ndate.toString();
-    let arrdate = sdate.split(/[\s:]/g);
-    
-    arrdate2 = [ // get data from Date object and string splitting
-      {value : Number(arrdate[3]) - 1970 ,for:'year(s)'},
-      {value : ndate.getMonth()          ,for:'month(s)'},
-      {value : Number(arrdate[2])        ,for:'day(s)'},
-      {value : Number(arrdate[4])        ,for:'hour(s)'},
-      {value : Number(arrdate[5])        ,for:'minute(s)'}
+    let ms = Date.now() - t; // difference in ms
+    let ndate = new Date(ms); // make new from diff
+
+    arrdate2 = [ // get data from Date object in UTC so no local offset
+      {value : ndate.getUTCFullYear() - 1970 ,for:'year(s)'},
+      {value : ndate.getUTCMonth()        ,for:'month(s)'},
+      {value : ndate.getUTCDate()          ,for:'day(s)'},
+      {value : ndate.getUTCHours()        ,for:'hour(s)'},
+      {value : ndate.getUTCMinutes()      ,for:'minute(s)'},
+      {value : 'Posted just now'          ,for:''}
     ];
-    //go through time unit and move down to shorter units
-    let ANS = 0;
-    arrdate2.forEach((el, i) => {
-      if (el.value > 1) {
-        ANS = el;
-      }
-      if (i === 4) {
-        'Posted just now';
+    
+    const ANS = arrdate2.find((el, i) => {
+      if (el.value > 1 || i === 4) {
+        return true;
       }
     });
-    return ANS === 'Posted just now' ? ANS : `Posted ${ANS.value} ${ANS.for} ago`;
+    return ANS.value < 1 ? 'Posted just now' : `Posted ${ANS.value} ${ANS.for} ago`;
   };
   
   const renderTweets = function(tweets) {
@@ -91,12 +86,9 @@ $(document).ready(() => {
     for(tweet in tweets){
       tweetArr.push(tweets[tweet])
     }
-
     tweetArr.sort( (a,b) => {
       return a.created_at > b.created_at ? -1 : 1;
-    })
-    
-    tweets.forEach(tweet => {
+    }).forEach(tweet => {
       const newTweet = createTweetElement(tweet);
       newTweet.appendTo('#tweets-container');
     });
